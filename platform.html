@@ -1339,5 +1339,19 @@ Seasonal Decomposition</code></pre>
   });
 </script>
 
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle?.addEventListener('click', () => {
+      navLinks?.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navLinks?.classList.contains('open') ? 'true' : 'false');
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('nav') && navLinks?.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>

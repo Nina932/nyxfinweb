@@ -178,6 +178,23 @@
       align-items: center;
     }
 
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-secondary);
+      border-radius: 999px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-toggle:hover {
+      background: rgba(79, 209, 197, 0.08);
+      border-color: var(--accent-teal);
+    }
+
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
@@ -958,7 +975,28 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        right: 1.5rem;
+        left: 1.5rem;
+        flex-direction: column;
+        background: rgba(0, 5, 13, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 1.25rem 1rem;
+        gap: 1rem;
+        backdrop-filter: blur(18px);
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links li a,
+      .nav-links li button { width: 100%; text-align: center; }
+      .nav-links li a { padding: 0.75rem 0; }
+      .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
       section { padding: 80px 0; }
       .feature-grid { grid-template-columns: 1fr; }
       .pipeline-flow { flex-direction: column; gap: 1.5rem; }
@@ -989,11 +1027,12 @@
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>
       NYX <span class="core">Core</span>
     </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
       <li><a href="#platform">Platform</a></li>
       <li><a href="#intelligence">Intelligence</a></li>
-      <li><a href="platform.html">Documentation</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="#contact" class="nav-cta">Request Demo</a></li>
     </ul>
   </div>
@@ -1001,465 +1040,276 @@
 
 <!-- ═══════════════ HERO SECTION ═══════════════ -->
 <section class="hero">
-  <div class="container">
-    <h1>Financial Intelligence for Real-Time Decisions</h1>
-    <p>Upload financial data → get structured analysis → receive actionable decisions in seconds.</p>
-    <div class="cta-buttons">
-      <a href="#contact" class="btn btn-primary">Upload Demo Data</a>
-      <a href="#demo" class="btn btn-secondary">See Live Example</a>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badge"><span></span>Financial Intelligence Platform</div>
+      <h1>The Decision Layer for <span class="gradient-text">Financial Data</span></h1>
+      <p>Transform raw accounting data into verified insights and executable decisions using our hybrid symbolic-neural architecture. NYX Core doesn't just analyze — it understands, detects, simulates, and recommends.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Request Demo</a>
+        <a href="#platform" class="btn btn-secondary">Watch Overview</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="value">99.9%</span><span class="label">Data Integrity</span></div>
+        <div class="hero-stat"><span class="value">&lt;50ms</span><span class="label">Query Latency</span></div>
+        <div class="hero-stat"><span class="value">710+</span><span class="label">Knowledge Nodes</span></div>
+      </div>
     </div>
-    <small>Trusted for high-volume financial operations & enterprise-grade analysis</small>
-  </div>
-</section>
-
-<section class="problem">
-  <div class="container">
-    <span class="section-tag">The Problem</span>
-    <h2>The Problem</h2>
-    <p>Financial teams still rely on spreadsheets, manual consolidation, and delayed reporting.</p>
-    <ul>
-      <li>5–10 day monthly closing cycles</li>
-      <li>Fragmented Excel-based workflows</li>
-      <li>Hidden financial inefficiencies</li>
-      <li>Delayed decision-making at executive level</li>
-    </ul>
-  </div>
-</section>
-
-<section class="solution">
-  <div class="container">
-    <span class="section-tag">The Solution</span>
-    <h2>The Solution</h2>
-    <p>NYX Core transforms raw financial data into structured insights and decisions automatically.</p>
-    <div class="highlight">From Data Chaos → To Decision Intelligence</div>
-  </div>
-</section>
-
-<section class="workflow">
-  <div class="container">
-    <span class="section-tag">How It Works</span>
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>1. Connect Data</h3>
-        <p>Upload Excel, 1C exports, or ERP data sources.</p>
-      </div>
-      <div class="step">
-        <h3>2. Understand Structure</h3>
-        <p>The system maps financial logic and accounting structure.</p>
-      </div>
-      <div class="step">
-        <h3>3. Analyze & Detect</h3>
-        <p>Find anomalies, trends, inefficiencies, and risks.</p>
-      </div>
-      <div class="step">
-        <h3>4. Generate Decisions</h3>
-        <p>Receive ranked actions with financial impact simulation.</p>
-      </div>
+    <div class="hero-visual screenshot-frame glow">
+      <div class="screenshot-dots"><span></span><span></span><span></span></div>
+      <img src="assets/dashboard-main.png" alt="Decision layer dashboard" loading="lazy">
+      <span class="screenshot-label">REASONING HUB</span>
     </div>
   </div>
 </section>
 
-<section class="architecture">
-  <div class="container">
-    <span class="section-tag">Financial Intelligence Engine</span>
-    <h2>Financial Intelligence Engine</h2>
-    <div class="layers">
-      <div class="layer">
-        <h3>Data Processing Engine</h3>
-        <p>Transforms raw financial files into structured datasets.</p>
-      </div>
-      <div class="layer">
-        <h3>Knowledge Graph</h3>
-        <p>Understands accounting logic, not just numbers.</p>
-      </div>
-      <div class="layer">
-        <h3>Vector Intelligence Layer</h3>
-        <p>Captures semantic meaning and financial context.</p>
-      </div>
-      <div class="layer">
-        <h3>Multi-Agent System</h3>
-        <p>Breaks financial tasks into intelligent execution steps.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="decision-engine">
-  <div class="container">
-    <span class="section-tag">Decision Engine</span>
-    <h2>Decision Engine</h2>
-    <div class="wow-box">
-      <h3>From Insight → To Action</h3>
-      <p>The system does not stop at analysis — it recommends actions with predicted outcomes.</p>
-      <div class="example">
-        <strong>Recommendation:</strong> Increase wholesale pricing by 2.5%<br>
-        <strong>Expected Impact:</strong> +₾245,000 revenue<br>
-        <strong>Confidence:</strong> 92%
-      </div>
-      <a href="#contact" class="btn btn-primary">Run Simulation on Your Data</a>
-    </div>
-  </div>
-</section>
-
-<section class="comparison">
-  <div class="container">
-    <span class="section-tag">Before vs After</span>
-    <h2>Before vs After NYX Core</h2>
-    <div class="grid">
-      <div>
-        <h3>Before</h3>
-        <ul>
-          <li>Manual Excel analysis</li>
-          <li>Delayed reporting cycles</li>
-          <li>Unclear financial drivers</li>
-        </ul>
-      </div>
-      <div>
-        <h3>After</h3>
-        <ul>
-          <li>Automated financial intelligence</li>
-          <li>Real-time insights</li>
-          <li>Actionable decisions</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="demo" class="demo">
-  <div class="container">
-    <span class="section-tag">Try the System</span>
-    <h2>Try the System</h2>
-    <div class="demo-box">
-      <button class="btn btn-secondary">Upload Sample Financial File</button>
-      <div class="demo-flow">
-        <p>Step 1 → Data Ingestion</p>
-        <p>Step 2 → Structural Mapping</p>
-        <p>Step 3 → Financial Analysis</p>
-        <p>Step 4 → Decision Output</p>
-      </div>
-      <div class="result-box">
-        <p><strong>Insight:</strong> Margin decline detected in Wholesale segment</p>
-        <p><strong>Action:</strong> Adjust pricing strategy</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="value">
-  <div class="container">
-    <span class="section-tag">What You Get</span>
-    <h2>What You Get</h2>
-    <ul>
-      <li>Real-time financial visibility</li>
-      <li>Automated reporting & analysis</li>
-      <li>Decision-ready insights</li>
-      <li>Reduced dependency on manual finance teams</li>
-    </ul>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="container">
-    <h2>See Your Financial Data Differently</h2>
-    <p>Upload your dataset and discover what your numbers are actually saying.</p>
-    <a href="#contact" class="btn btn-primary">Request Institutional Demo</a>
-    <small>Response within 24 hours</small>
-  </div>
-</section>
-
-<!-- ═══════════════ FEATURES SECTION ═══════════════ -->
 <section id="features" class="features-section">
   <div class="container">
     <div class="text-center reveal">
-      <span class="section-tag">Core Capabilities</span>
-      <h2 class="section-title">From Data Chaos to Strategic Command</h2>
-      <p class="section-subtitle mx-auto">Unlike typical AI tools, NYX Core understands financial structure, detects anomalies, simulates outcomes, and recommends actions.</p>
+      <span class="section-tag">Platform Capabilities</span>
+      <h2 class="section-title">Complete Financial Intelligence Stack</h2>
+      <p class="section-subtitle mx-auto">Eight interconnected modules working together to transform raw data into strategic decisions with full auditability.</p>
     </div>
-
     <div class="feature-grid">
       <div class="feature-card reveal stagger-1">
-        <div class="feature-icon"><i class="fas fa-brain"></i></div>
-        <h3>Hybrid Intelligence</h3>
-        <p>Symbolic-neural architecture combining deterministic financial rules with AI reasoning for audit-grade accuracy.</p>
+        <div class="feature-icon"><i class="fas fa-database"></i></div>
+        <h3>Data Warehouse</h3>
+        <p>Unified financial data lake with intelligent schema detection and automatic normalization across ERP systems.</p>
       </div>
-
       <div class="feature-card reveal stagger-2">
         <div class="feature-icon"><i class="fas fa-project-diagram"></i></div>
         <h3>Knowledge Graph</h3>
-        <p>710+ entity financial knowledge graph with IFRS standards, ratios, and account relationships built-in.</p>
+        <p>710+ financial ontology nodes connecting accounts, ratios, standards, and business entities semantically.</p>
       </div>
-
       <div class="feature-card reveal stagger-3">
-        <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-        <h3>Forensic Integrity</h3>
-        <p>Every calculation traces back to source data with complete audit lineage and provenance verification.</p>
+        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+        <h3>Vector Intelligence</h3>
+        <p>2,344+ embeddings in ChromaDB for semantic search, similarity matching, and contextual retrieval.</p>
       </div>
-
       <div class="feature-card reveal stagger-1">
-        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-        <h3>Prescriptive Actions</h3>
-        <p>Move beyond insights to executable decisions with ROI-ranked recommendations and impact simulations.</p>
+        <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
+        <h3>Data Lineage</h3>
+        <p>End-to-end traceability from source ERP to final report with provenance verification and audit trails.</p>
       </div>
-
+      <div class="feature-card reveal stagger-2">
+        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Decision Engine</h3>
+        <p>Causal inference and counterfactual reasoning to generate actionable recommendations with confidence scores.</p>
+      </div>
+      <div class="feature-card reveal stagger-3">
+        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Analytics Center</h3>
+        <p>Pre-built financial analysis templates including waterfall charts, profitability matrices, and KPI dashboards.</p>
+      </div>
+      <div class="feature-card reveal stagger-1">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Compliance Audit</h3>
+        <p>IFRS/GAAP standard compliance checking with automated variance analysis and exception reporting.</p>
+      </div>
       <div class="feature-card reveal stagger-2">
         <div class="feature-icon"><i class="fas fa-robot"></i></div>
-        <h3>Multi-Agent System</h3>
-        <p>12 specialized AI agents orchestrated for diagnosis, decision, strategy, simulation, and learning tasks.</p>
-      </div>
-
-      <div class="feature-card reveal stagger-3">
-        <div class="feature-icon"><i class="fas fa-globe"></i></div>
-        <h3>Regional Compliance</h3>
-        <p>Native support for Georgian 1C exports, bilingual COA mapping, and emerging market standards.</p>
+        <h3>Agent Orchestrator</h3>
+        <p>Multi-agent reasoning pipeline: Diagnosis → Decision → Strategy → Simulation → Monitoring → Learning.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PLATFORM SHOWCASE ═══════════════ -->
-<section id="platform">
+<section id="platform" class="showcase-section">
   <div class="container">
-    <!-- Strategic Intelligence -->
-    <div class="showcase-grid reveal">
-      <div class="showcase-content">
-        <span class="section-tag">Strategic Intelligence</span>
-        <h3>Real-Time Operational Command</h3>
-        <p>Monitor global operations with live market data, logistics intelligence, and strategic briefings. The Operator Briefing surfaces actionable insights from across your financial ecosystem.</p>
-        <ul class="showcase-list">
-          <li>Live macro pulse with currency and commodity tracking</li>
-          <li>Route optimization and arbitrage detection</li>
-          <li>Automated tactical audit generation</li>
-        </ul>
-      </div>
-      <div class="screenshot-frame float-delay">
+    <div class="text-center reveal">
+      <span class="section-tag">Command Center</span>
+      <h2 class="section-title">Intelligence at Your Fingertips</h2>
+      <p class="section-subtitle mx-auto">Every dashboard built for speed, clarity, and actionable insight. See the decision layer in action.</p>
+    </div>
+    <div class="showcase-grid reveal" style="margin-top: 3rem;">
+      <div class="screenshot-frame glow">
         <div class="screenshot-dots"><span></span><span></span><span></span></div>
-        <video autoplay muted loop playsinline>
-          <source src="assets/strategic-map.mp4" type="video/mp4">
-        </video>
-        <span class="screenshot-label">STRATEGIC_INTELLIGENCE_MAP</span>
+        <img src="assets/dashboard-main.png" alt="Command Center Dashboard" loading="lazy">
+        <span class="screenshot-label">SOVEREIGN STRATEGIC DASHBOARD</span>
+      </div>
+      <div class="showcase-content">
+        <h3>Sovereign Strategic Dashboard</h3>
+        <p>Real-time KPIs, forensic integrity scores, and operational intelligence with geographic supply chain visualization.</p>
+        <ul class="showcase-list">
+          <li>Total Revenue Tracking</li>
+          <li>EBITDA Efficiency</li>
+          <li>Macro Pulse Monitoring</li>
+          <li>Operating Margin</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Explore this dashboard</a>
       </div>
     </div>
-
-    <!-- Data Lineage -->
-    <div class="showcase-grid reverse reveal" style="margin-top: 8rem;">
+    <div class="showcase-grid reverse reveal" style="margin-top: 5rem;">
       <div class="showcase-content">
-        <span class="section-tag">Data Lineage</span>
-        <h3>End-to-End Financial Traceability</h3>
-        <p>Track every number from source ERP to final statement. The provenance guard ensures all artifacts link to auditable source identifiers with zero variance.</p>
-        <ul class="showcase-list">
-          <li>Visual pipeline from raw feed to consolidated output</li>
-          <li>4.2 levels of traceability depth achieved</li>
-          <li>Hash-chain verified audit readiness certificates</li>
-        </ul>
-      </div>
-      <div class="screenshot-frame">
-        <div class="screenshot-dots"><span></span><span></span><span></span></div>
-        <img src="assets/data-lineage.png" alt="Data Lineage Explorer">
-        <span class="screenshot-label">DATA_LINEAGE_EXPLORER</span>
-      </div>
-    </div>
-
-    <!-- Agent Workflow -->
-    <div class="showcase-grid reveal" style="margin-top: 8rem;">
-      <div class="showcase-content">
-        <span class="section-tag">Agent Orchestration</span>
         <h3>Mission Control for AI Workflows</h3>
-        <p>Orchestrate complex financial analysis through composable AI workflow replicators. From diagnosis to decision, each step executes with full observability.</p>
+        <p>Orchestrate complex financial analysis through composable AI workflow replicators with full observability.</p>
         <ul class="showcase-list">
           <li>7-stage intelligence pipeline execution</li>
-          <li>Composable workflow replicators for any analysis</li>
           <li>Real-time execution logs and matrix population</li>
+          <li>Composable workflow replicators for any analysis</li>
         </ul>
       </div>
       <div class="screenshot-frame">
         <div class="screenshot-dots"><span></span><span></span><span></span></div>
         <img src="assets/orchestrator.png" alt="Orchestrator Mission Control">
-        <span class="screenshot-label">ORCHESTRATOR_MISSION_CONTROL</span>
+        <span class="screenshot-label">ORCHESTRATOR MISSION CONTROL</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ INTELLIGENCE PIPELINE ═══════════════ -->
 <section id="intelligence" class="pipeline-section">
   <div class="container">
     <div class="text-center reveal">
-      <span class="section-tag">System Architecture</span>
-      <h2 class="section-title">The 5-Stage Intelligence Pipeline</h2>
-      <p class="section-subtitle mx-auto">Not an "AI wrapper" but a 12-agent orchestration layer bridging raw files and institutional ground truth.</p>
+      <span class="section-tag">Intelligence Pipeline</span>
+      <h2 class="section-title">Multi-Agent Reasoning Architecture</h2>
+      <p class="section-subtitle mx-auto">Seven specialized agents orchestrated in a continuous intelligence loop, each contributing unique capabilities to the decision-making process.</p>
     </div>
-
     <div class="pipeline-flow">
       <div class="pipeline-node reveal stagger-1">
-        <div class="node-icon"><i class="fas fa-file-import"></i></div>
-        <h4>Ingestion</h4>
-        <p>Multi-format parsing of GL data, 1C exports, IFRS mappings</p>
+        <div class="node-icon"><i class="fas fa-stethoscope"></i></div>
+        <h4>DIAGNOSIS</h4>
+        <p>Analyze data health and identify anomalies</p>
       </div>
-
       <div class="pipeline-node reveal stagger-2">
-        <div class="node-icon"><i class="fas fa-calculator"></i></div>
-        <h4>Computation</h4>
-        <p>Deterministic financial rules using Python Decimal logic</p>
+        <div class="node-icon"><i class="fas fa-bullseye"></i></div>
+        <h4>DECISION</h4>
+        <p>Generate actionable recommendations</p>
       </div>
-
       <div class="pipeline-node reveal stagger-3">
-        <div class="node-icon"><i class="fas fa-brain"></i></div>
-        <h4>Reasoning</h4>
-        <p>Agents analyze anomalies, margins, and inefficiencies</p>
+        <div class="node-icon"><i class="fas fa-compass"></i></div>
+        <h4>STRATEGY</h4>
+        <p>Map strategic options and pathways</p>
       </div>
-
       <div class="pipeline-node highlight reveal stagger-4">
         <div class="node-icon"><i class="fas fa-bolt"></i></div>
-        <h4>Decision</h4>
-        <p>Strategy agents propose ROI-ranked actions automatically</p>
+        <h4>SIMULATION</h4>
+        <p>Model outcomes and scenarios</p>
       </div>
-
-      <div class="pipeline-node reveal stagger-4">
-        <div class="node-icon"><i class="fas fa-shield-check"></i></div>
-        <h4>Verification</h4>
-        <p>Supervisor agent verifies against source lineage</p>
+      <div class="pipeline-node reveal stagger-1">
+        <div class="node-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <h4>MONITORING</h4>
+        <p>Track execution and drift</p>
+      </div>
+      <div class="pipeline-node reveal stagger-2">
+        <div class="node-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h4>LEARNING</h4>
+        <p>Calibrate models from feedback</p>
+      </div>
+      <div class="pipeline-node reveal stagger-3">
+        <div class="node-icon"><i class="fas fa-lightbulb"></i></div>
+        <h4>ANALOGY</h4>
+        <p>Apply patterns across contexts</p>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card reveal stagger-1">
+        <div class="metric-value">42ms</div>
+        <div class="metric-label">Execution Latency</div>
+      </div>
+      <div class="metric-card reveal stagger-2">
+        <div class="metric-value">4.2</div>
+        <div class="metric-label">Pipeline Depth</div>
+      </div>
+      <div class="metric-card reveal stagger-3">
+        <div class="metric-value">3</div>
+        <div class="metric-label">Active Replicators</div>
+      </div>
+      <div class="metric-card reveal stagger-4">
+        <div class="metric-value">NOMINAL</div>
+        <div class="metric-label">System Status</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ BENTO GRID SHOWCASE ═══════════════ -->
-<section>
+<section class="showcase-section">
   <div class="container">
     <div class="text-center reveal">
       <span class="section-tag">Platform Modules</span>
-      <h2 class="section-title">Complete Financial Intelligence Suite</h2>
+      <h2 class="section-title">Every Financial Dimension Covered</h2>
+      <p class="section-subtitle mx-auto">Specialized modules for each area of financial operations, from sub-ledger analysis to ESG compliance.</p>
     </div>
-
     <div class="bento-grid">
-      <div class="bento-item large reveal">
-        <img src="assets/sub-ledgeranalysis.png" alt="Sub-Ledger Analysis">
+      <div class="bento-item medium reveal">
         <div class="bento-content">
-          <h4>Sub-Ledger Analysis</h4>
-          <p>AR/AP aging distribution, concentration risk heatmaps, and working capital optimization</p>
+          <h4>Accounts Receivable</h4>
+          <p>Total Receivables $980.0K · DSO 26 days · Collection Risk Low</p>
         </div>
       </div>
-
-      <div class="bento-item small reveal stagger-1">
-        <img src="assets/esg.png" alt="ESG Dashboard">
+      <div class="bento-item medium reveal stagger-1">
+        <div class="bento-content">
+          <h4>Accounts Payable</h4>
+          <p>Total Payables $720.0K · DPO 15 days · Invoices Pending 5</p>
+        </div>
+      </div>
+      <div class="bento-item small reveal stagger-2">
+        <div class="bento-content">
+          <h4>Fixed Assets</h4>
+          <p>Total Assets -- · Depreciation 0% · Net Book Value $0</p>
+        </div>
+      </div>
+      <div class="bento-item small reveal stagger-3">
+        <div class="bento-content">
+          <h4>Working Capital</h4>
+          <p>Net Working Capital -- · Cash Conversion 0 days · Net Position +$260.0K</p>
+        </div>
+      </div>
+      <div class="bento-item small reveal">
         <div class="bento-content">
           <h4>ESG & Sustainability</h4>
-          <p>Environmental, Social, and Governance scoring framework</p>
+          <p>Environmental, Social & Governance scoring with carbon footprint tracking</p>
         </div>
       </div>
-
-      <div class="bento-item medium reveal stagger-2">
-        <img src="assets/ontology.png" alt="Financial Ontology">
+      <div class="bento-item small reveal stagger-1">
         <div class="bento-content">
-          <h4>Intelligence Matrix</h4>
-          <p>Navigate causal relationships across your financial knowledge graph</p>
+          <h4>Financial Ontology</h4>
+          <p>Knowledge graph explorer with IFRS standards mapping and account relationships</p>
         </div>
       </div>
-
-      <div class="bento-item medium reveal stagger-3">
-        <img src="assets/warehouse.png" alt="Data Warehouse">
+      <div class="bento-item small reveal stagger-2">
         <div class="bento-content">
           <h4>Data Warehouse</h4>
           <p>Pre-built analytics with AI data agent for natural language queries</p>
         </div>
       </div>
-
-      <div class="bento-item small reveal">
-        <img src="assets/flywheel.png" alt="Data Flywheel">
+      <div class="bento-item small reveal stagger-3">
         <div class="bento-content">
-          <h4>Data Flywheel</h4>
-          <p>Self-improving AI loop: Collect, Score, Learn, Calibrate, Improve</p>
-        </div>
-      </div>
-
-      <div class="bento-item large reveal">
-        <img src="assets/system.png" alt="System Status">
-        <div class="bento-content">
-          <h4>Infrastructure Status</h4>
-          <p>Agent registry, knowledge graph nodes, LLM stack with 5-tier fallback</p>
+          <h4>System Infrastructure</h4>
+          <p>Agent registry, knowledge graph stats, and LLM stack configuration</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ METRICS SECTION ═══════════════ -->
-<section>
-  <div class="container">
-    <div class="text-center reveal">
-      <span class="section-tag">Operating Scale</span>
-      <h2 class="section-title">Built for Industrial Reliability</h2>
-    </div>
-
-    <div class="metrics-grid">
-      <div class="metric-card reveal stagger-1">
-        <div class="metric-value">500+</div>
-        <div class="metric-label">Proprietary Tools</div>
-      </div>
-      <div class="metric-card reveal stagger-2">
-        <div class="metric-value">12</div>
-        <div class="metric-label">Specialized Agents</div>
-      </div>
-      <div class="metric-card reveal stagger-3">
-        <div class="metric-value">710</div>
-        <div class="metric-label">Knowledge Nodes</div>
-      </div>
-      <div class="metric-card reveal stagger-4">
-        <div class="metric-value">42ms</div>
-        <div class="metric-label">Trace Latency</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ CTA SECTION ═══════════════ -->
 <section id="contact" class="cta-section">
   <div class="container">
     <div class="cta-box reveal">
-      <span class="section-tag">Get Started</span>
-      <h3>Shape the Future of Financial Intelligence</h3>
-      <p>Request an institutional pilot or explore the full system technical specification.</p>
-      
+      <span class="section-tag">Ready to Talk</span>
+      <h3>See the decision layer in action</h3>
+      <p>Upload data, test the pipeline, and get a demo aligned to your financial workflows.</p>
       <form class="contact-form" action="https://formsubmit.co/connect@nyxcore.space" method="POST" id="contactForm">
         <input type="hidden" name="_subject" value="NYX Core Demo Request">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Business Email" required>
-        <textarea name="message" placeholder="Describe your requirements..." rows="4"></textarea>
+        <textarea name="message" placeholder="Tell us about your needs..." rows="4" required></textarea>
         <button type="submit" class="btn btn-primary" style="width: 100%;">
           <i class="fas fa-paper-plane"></i> Connect with NYX Core
         </button>
       </form>
-      
-      <p style="margin-top: 1.5rem; font-size: 0.85rem;">
-        Direct contact: <a href="mailto:connect@nyxcore.space" style="color: var(--accent-teal);">connect@nyxcore.space</a>
-      </p>
+      <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);">Direct contact: <a href="mailto:connect@nyxcore.space" style="color: var(--accent-teal);">connect@nyxcore.space</a></p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
   <div class="container">
     <div class="footer-inner">
       <div class="footer-logo">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px">
-          <defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-          <g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3">
-            <polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon>
-            <polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon>
-            <polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon>
-            <polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon>
-            <polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon>
-            <polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon>
-          </g>
-          <polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/>
-          <polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon>
-          <polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon>
-          <polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon>
-        </svg>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>
         NYX <span class="core">CORE</span>
       </div>
       <div class="footer-links">
@@ -1468,13 +1318,10 @@
         <a href="pricing.html">Pricing</a>
         <a href="about.html">About</a>
       </div>
-      <div class="footer-credit">
-        &copy; 2026 NYX Core Thinker LLC. All rights reserved.
-      </div>
+      <div class="footer-credit">&copy; 2026 NYX Core Thinker LLC. All rights reserved.</div>
     </div>
   </div>
 </footer>
-
 <script>
   // Navbar scroll effect
   const navbar = document.getElementById('navbar');
@@ -1546,5 +1393,19 @@
   }
 </script>
 
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle?.addEventListener('click', () => {
+      navLinks?.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navLinks?.classList.contains('open') ? 'true' : 'false');
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('nav') && navLinks?.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>

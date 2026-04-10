@@ -89,6 +89,23 @@
       align-items: center;
     }
 
+    nav .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-primary);
+      border-radius: 999px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav .nav-toggle:hover {
+      background: rgba(79, 209, 197, 0.08);
+      border-color: var(--accent);
+    }
+
     nav a {
       color: var(--text-primary);
       text-decoration: none;
@@ -693,6 +710,7 @@
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>
         NYX <span class="logo-core">Core</span>
       </a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="platform.html">Platform</a></li>
@@ -982,8 +1000,8 @@
         <div class="footer-section">
           <h4>Company</h4>
           <p><a href="about.html" style="color: var(--text-secondary); text-decoration: none;">About</a></p>
-          <p><a href="index.html" style="color: var(--text-secondary); text-decoration: none;">Blog</a></p>
-          <p><a href="index.html" style="color: var(--text-secondary); text-decoration: none;">Careers</a></p>
+          <p><a href="about.html#contact" style="color: var(--text-secondary); text-decoration: none;">Contact</a></p>
+          <p><a href="about.html#contact" style="color: var(--text-secondary); text-decoration: none;">Request Demo</a></p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1062,6 +1080,20 @@
     document.querySelectorAll('.stat-item, .philosophy-card, .timeline-item, .section, .counter').forEach(el => {
       el.classList.add('reveal');
       revealObserver.observe(el);
+    });
+  </script>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle?.addEventListener('click', () => {
+      navLinks?.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navLinks?.classList.contains('open') ? 'true' : 'false');
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('nav') && navLinks?.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 </body>
