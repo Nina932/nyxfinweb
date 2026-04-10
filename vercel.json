@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "nyxcore-investor-portal",
+  "domains": ["www.nyxcore.space"],
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "about.html", "use": "@vercel/static" },
