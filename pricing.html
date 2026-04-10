@@ -108,15 +108,17 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.35rem;
       font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: -0.03em;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
       text-decoration: none;
       color: #fff;
     }
 
-    .nav-logo .core { color: #00E5FF; }
+    .nav-logo svg { width: 88px; height: 88px; transition: transform 0.3s ease; }
+    .nav-logo:hover svg { transform: scale(1.05); }
+    .nav-logo .core { color: #00E5FF; text-transform: uppercase; }
 
     .nav-links {
       display: flex;
@@ -412,16 +414,17 @@
 
 <nav id="navbar">
   <div class="nav-container">
-    <a href="index.html" class="nav-logo">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>
-      NYX <span class="core">Core</span>
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:88px;height:88px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>
+      NYX <span class="core">CORE</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="platform.html">Platform</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Request Demo</a></li>
+      <li><a href="/features">Features</a></li>
+      <li><a href="/platform">Platform</a></li>
+      <li><a href="/use-cases">Use Cases</a></li>
+      <li><a href="/pricing" class="active">Pricing</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/#contact" class="nav-cta">Request Demo</a></li>
     </ul>
     <button class="nav-toggle">Menu</button>
   </div>
@@ -449,7 +452,7 @@
         <li>Basic anomaly detection</li>
         <li>Standard Knowledge Graph</li>
       </ul>
-      <a href="index.html#contact" class="btn card-btn btn-secondary">Start Trial</a>
+      <a href="/#contact" class="btn card-btn btn-secondary">Start Trial</a>
     </div>
 
     <!-- PRO -->
@@ -466,7 +469,7 @@
         <li>API access & Vector Search</li>
         <li>Custom Intelligence Replicators</li>
       </ul>
-      <a href="index.html#contact" class="btn card-btn">Start Professional Trial</a>
+      <a href="/#contact" class="btn card-btn">Start Professional Trial</a>
     </div>
 
     <!-- ENTERPRISE -->
@@ -483,31 +486,47 @@
         <li>24/7 Priority monitoring</li>
         <li>White-label capabilities</li>
       </ul>
-      <a href="index.html#contact" class="btn card-btn btn-secondary">Contact Sales</a>
+      <a href="/#contact" class="btn card-btn btn-secondary">Contact Sales</a>
     </div>
   </div>
 
   <section class="cta-box reveal">
     <h2>Replace spreadsheets with intelligence</h2>
     <p>Join the next generation of companies upgrading their financial decision systems today.</p>
-    <a href="index.html#contact" class="btn" style="padding: 1.25rem 2.5rem; font-size: 1rem;">Start Free Trial</a>
+    <a href="/#contact" class="btn" style="padding: 1.25rem 2.5rem; font-size: 1rem;">Start Free Trial</a>
   </section>
 
 </main>
 
 <footer>
-  <div class="container text-center">
-    <div class="footer-inner" style="justify-content: center; flex-direction: column; gap: 1.5rem;">
-      <div class="footer-logo">
-        NYX <span class="core">CORE</span>
+  <div class="container">
+    <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding: 4rem 0;">
+      <div class="footer-brand">
+        <div class="footer-logo" style="display: flex; align-items: center; gap: 0.35rem; font-weight: 800; font-size: 1.4rem; margin-bottom: 1.5rem; color: #fff;">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:54px;height:54px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>
+          NYX <span class="core" style="color: #00E5FF;">CORE</span>
+        </div>
+        <p style="color: var(--text-secondary); max-width: 320px; font-size: 0.95rem;">Building the decision layer on top of your financial data with sovereign intelligence.</p>
       </div>
-      <div class="footer-links">
-        <a href="platform.html">Platform</a>
-        <a href="use-cases.html">Use Cases</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
+      <div class="footer-col">
+        <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-teal); margin-bottom: 1.5rem;">Product</h4>
+        <ul style="list-style: none; display: grid; gap: 0.75rem;">
+          <li><a href="/features" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Features</a></li>
+          <li><a href="/pricing" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Pricing</a></li>
+          <li><a href="/use-cases" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Use Cases</a></li>
+        </ul>
       </div>
-      <div class="footer-credit">&copy; 2026 NYX Core Thinker LLC. All rights reserved. Based in Tbilisi, Georgia.</div>
+      <div class="footer-col">
+        <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-teal); margin-bottom: 1.5rem;">Company</h4>
+        <ul style="list-style: none; display: grid; gap: 0.75rem;">
+          <li><a href="/about" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">About</a></li>
+          <li><a href="/#contact" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="border-top: 1px solid var(--glass-border); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.85rem;">
+      <div>&copy; 2026 NYX Core Thinker LLC. All rights reserved.</div>
+      <div>Based in Tbilisi, Georgia</div>
     </div>
   </div>
 </footer>
