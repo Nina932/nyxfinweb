@@ -2,24 +2,14 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 export function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setStatus("loading");
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setStatus("success");
-    setEmail("");
-  };
 
   return (
     <section className="py-24 relative overflow-hidden" ref={ref} id="demo">
@@ -34,8 +24,9 @@ export function CTA() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="max-w-4xl mx-auto"
         >
-          {/* Main CTA Card */}
+          {/* CTA Card */}
           <div className="glass-card rounded-2xl p-8 md:p-12 text-center gradient-border">
+
             <motion.span
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
@@ -67,42 +58,60 @@ export function CTA() {
               into verified insights and executable decisions.
             </motion.p>
 
-                        {/* Form */}
+            {/* FORM */}
             <motion.form
-  initial={{ opacity: 0, y: 20 }}
-  animate={isInView ? { opacity: 1, y: 0 } : {}}
-  transition={{ delay: 0.5 }}
-  action="https://formsubmit.co/keshelavanina@gmail.com"
-  method="POST"
-  className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
->
-  {/* REQUIRED SETTINGS */}
-  <input type="hidden" name="_subject" value="NYX Core - Demo Request" />
-  <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_template" value="table" />
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.5 }}
+              action="https://formspree.io/f/mqegvrwb"
+              method="POST"
+              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
+            >
+              {/* SUBJECT */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="NYX Core - Demo Request"
+              />
 
-  {/* SECOND EMAIL (COPY) */}
-  <input type="hidden" name="_cc" value="connect@nyxcore.space" />
+              {/* disable captcha */}
+              <input type="hidden" name="_captcha" value="false" />
 
-  {/* USER EMAIL */}
-  <input
-    type="email"
-    name="email"
-    placeholder="Enter your work email"
-    className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
-    required
-  />
+              {/* message */}
+              <input
+                type="hidden"
+                name="message"
+                value="New demo request from NYX Core website"
+              />
 
-  <button
-    type="submit"
-    className="group px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-background font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
-  >
-    Request Demo
-    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-  </button>
-</motion.form>
+              {/* CC EMAIL (SECOND EMAIL) */}
+              <input
+                type="hidden"
+                name="_cc"
+                value="connect@nyxcore.space"
+              />
 
-            {/* Trust Indicators */}
+              {/* EMAIL INPUT */}
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your work email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
+              />
+
+              <button
+                type="submit"
+                className="group px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-background font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
+              >
+                Request Demo
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </motion.form>
+
+            {/* TRUST */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
@@ -122,6 +131,7 @@ export function CTA() {
                 On-premise Available
               </span>
             </motion.div>
+
           </div>
         </motion.div>
       </div>
