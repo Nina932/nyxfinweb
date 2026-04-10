@@ -69,39 +69,38 @@ export function CTA() {
 
                         {/* Form */}
             <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5 }}
-              action="https://formsubmit.co/connect@nyxcore.space"
-              method="POST"
-              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
-            >
-              <input
-                type="hidden"
-                name="_subject"
-                value="NYX Core - Demo Request"
-              />
-              <input
-                type="hidden"
-                name="_cc"
-                value="keshelavanina@gmail.com"
-              />
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your work email"
-                className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
-                required
-              />
-              <button
-                type="submit"
-                className="group px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-background font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
-              >
-                Request Demo
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.form>
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ delay: 0.5 }}
+  action="https://formsubmit.co/keshelavanina@gmail.com"
+  method="POST"
+  className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
+>
+  {/* REQUIRED SETTINGS */}
+  <input type="hidden" name="_subject" value="NYX Core - Demo Request" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
+
+  {/* SECOND EMAIL (COPY) */}
+  <input type="hidden" name="_cc" value="connect@nyxcore.space" />
+
+  {/* USER EMAIL */}
+  <input
+    type="email"
+    name="email"
+    placeholder="Enter your work email"
+    className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
+    required
+  />
+
+  <button
+    type="submit"
+    className="group px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-background font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
+  >
+    Request Demo
+    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+  </button>
+</motion.form>
 
             {/* Trust Indicators */}
             <motion.div
