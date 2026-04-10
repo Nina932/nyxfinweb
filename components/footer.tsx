@@ -1,33 +1,22 @@
-import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
+
+const LOGO_SVG = `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px"><defs><filter id="ng-footer" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"/><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"/><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"/><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"/><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"/><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"/></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng-footer)"/></svg>`;
 
 const footerLinks = {
   product: [
-    { label: "Platform", href: "/platform" },
-    { label: "Features", href: "/#features" },
-    { label: "Use Cases", href: "/use-cases" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Roadmap", href: "/roadmap" },
-  ],
-  resources: [
-    { label: "Documentation", href: "/docs" },
-    { label: "API Reference", href: "/api" },
-    { label: "Blog", href: "/blog" },
-    { label: "Changelog", href: "/changelog" },
-    { label: "Status", href: "/status" },
+    { label: "Features", href: "#features" },
+    { label: "Platform", href: "#platform" },
+    { label: "How It Works", href: "#pipeline" },
+    { label: "Modules", href: "#modules" },
   ],
   company: [
-    { label: "About", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
-    { label: "Partners", href: "/partners" },
-    { label: "Press", href: "/press" },
+    { label: "Contact", href: "#contact" },
+    { label: "Request Demo", href: "#contact" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-    { label: "Security", href: "/security" },
-    { label: "Compliance", href: "/compliance" },
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms of Service", href: "#" },
+    { label: "Security", href: "#" },
   ],
 };
 
@@ -36,47 +25,19 @@ export function Footer() {
     <footer className="border-t border-border bg-background/50">
       <div className="container mx-auto px-6 py-12">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10">
-                <svg viewBox="0 0 40 40" className="w-full h-full">
-                  <defs>
-                    <linearGradient
-                      id="footerLogoGradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor="#06b6d4" />
-                      <stop offset="100%" stopColor="#10b981" />
-                    </linearGradient>
-                  </defs>
-                  <circle
-                    cx="20"
-                    cy="20"
-                    r="18"
-                    fill="none"
-                    stroke="url(#footerLogoGradient)"
-                    strokeWidth="2"
-                  />
-                  <polygon
-                    points="20,8 28,28 20,23 12,28"
-                    fill="url(#footerLogoGradient)"
-                  />
-                </svg>
-              </div>
+            <a href="/" className="flex items-center gap-3 mb-4">
+              <div dangerouslySetInnerHTML={{ __html: LOGO_SVG }} />
               <span className="text-xl font-bold text-white">
                 NYX <span className="text-cyan-400">Core</span>
               </span>
-            </Link>
+            </a>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-xs">
               The Financial Intelligence Platform. Transform raw accounting data
               into verified insights and executable decisions.
             </p>
-            {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
                 href="#"
@@ -108,29 +69,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.label}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-sm text-muted-foreground hover:text-white transition-colors"
                   >
                     {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -142,12 +86,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-sm text-muted-foreground hover:text-white transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -159,12 +103,12 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <Link
+                  <a
                     href={link.href}
                     className="text-sm text-muted-foreground hover:text-white transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

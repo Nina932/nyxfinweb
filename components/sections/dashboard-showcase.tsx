@@ -52,7 +52,7 @@ export function DashboardShowcase() {
   const activeDashboard = dashboards.find((d) => d.id === activeTab);
 
   return (
-    <section className="py-24 relative overflow-hidden" ref={ref}>
+    <section className="py-24 relative overflow-hidden" ref={ref} id="platform">
       <div className="absolute inset-0 radial-gradient opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">

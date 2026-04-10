@@ -6,15 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Hexagonal teal logo SVG
-const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="27" fill="none" viewBox="0 0 48 46"><path fill="#00d4aa" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>`;
+const LOGO_SVG = `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px"><defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3"><polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon><polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon><polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon><polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon><polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon></g><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/><polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon><polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon><polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon></svg>`;
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/platform", label: "Platform" },
-  { href: "/use-cases", label: "Use Cases" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
+  { href: "#features", label: "Features" },
+  { href: "#platform", label: "Platform" },
+  { href: "#pipeline", label: "How It Works" },
+  { href: "#modules", label: "Modules" },
 ];
 
 export function Navigation() {
@@ -33,16 +31,14 @@ export function Navigation() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "glass py-3"
-          : "bg-transparent py-5"
+        isScrolled ? "glass py-3" : "bg-transparent py-5"
       )}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div 
-            className="relative w-10 h-10 transition-transform group-hover:scale-110"
+          <div
+            className="relative transition-transform group-hover:scale-110"
             dangerouslySetInnerHTML={{ __html: LOGO_SVG }}
           />
           <span className="text-xl font-bold text-white tracking-tight">
@@ -53,30 +49,30 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               className="nav-link text-sm text-muted-foreground hover:text-white transition-colors"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </div>
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
+          <a
             href="#contact"
             className="text-sm text-muted-foreground hover:text-white transition-colors"
           >
             Contact
-          </Link>
-          <Link
-            href="#demo"
+          </a>
+          <a
+            href="#contact"
             className="px-4 py-2 text-sm font-medium text-background bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
           >
             Request Demo
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -100,22 +96,22 @@ export function Navigation() {
           >
             <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
                   href={link.href}
                   className="text-muted-foreground hover:text-white transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
-              <Link
-                href="#demo"
+              <a
+                href="#contact"
                 className="px-4 py-2 text-sm font-medium text-center text-background bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Request Demo
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
