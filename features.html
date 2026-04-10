@@ -20,13 +20,14 @@
         html { scroll-behavior: smooth; }
 
         :root {
-            --bg: #00050D;
-            --card-bg: rgba(10, 22, 40, 0.7);
-            --accent: #4fd1c5;
+            --bg: #030a16;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent: #10b981; /* Emerald */
+            --accent-glow: rgba(16, 185, 129, 0.4);
             --logo: #863bff;
-            --border: rgba(79, 209, 197, 0.1);
-            --text-primary: #ffffff;
-            --text-secondary: #a0aec0;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
             --font-outfit: 'Outfit', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
@@ -183,27 +184,40 @@
 
         .hero h1 {
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            background: linear-gradient(135deg, #fff, var(--accent), #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero .subtitle {
-            font-size: 1.1rem;
-            max-width: 700px;
+            font-size: 1.25rem;
+            max-width: 800px;
             margin: 0 auto 2.5rem;
             color: var(--text-secondary);
+            font-weight: 300;
         }
 
         .section-label {
             display: inline-block;
-            font-family: var(--font-mono);
+            font-family: var(--font-outfit);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.35rem 1rem;
+            border-radius: 4px;
+        }
+
+        .engine-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
         }
 
         .stack-section, .command-section, .pipeline-section, .modules-section {
@@ -236,22 +250,23 @@
 
         .stack-card,
         .module-card,
-        .pipeline-node,
         .metric-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 1.75rem;
-            transition: all 0.3s ease;
+            border-radius: 32px; /* Softer, premium edges */
+            padding: 2.25rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .stack-card:hover,
         .module-card:hover,
-        .pipeline-node:hover,
         .metric-card:hover {
             border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 18px 40px rgba(79, 209, 197, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
         }
 
         .stack-card h4,
@@ -847,15 +862,23 @@
         <span class="badge">Functional Capabilities</span>
         <h1>Institutional Financial Operations</h1>
         <p class="subtitle">From raw accounting data to CFO-grade decisions. NYX CORE provides the functional modules to run high-stakes financial operations at scale.</p>
+
+        <div class="screenshot-showcase hero-visual" style="margin-top: 4rem;">
+            <div class="screenshot-frame" style="border-radius: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px var(--accent-glow);">
+                <div class="screenshot-dots"><span></span><span></span><span></span></div>
+                <img src="assets/platform.png" alt="NYX Core Strategic Cockpit" loading="lazy">
+            </div>
+            <div class="screenshot-caption" style="color: var(--accent); font-weight: 600; letter-spacing: 0.1em; margin-top: 2rem;">STRATEGIC COCKPIT — REAL-TIME DECISION ORCHESTRATION</div>
+        </div>
     </div>
 </section>
 
 <!-- ========== STACK SECTION ========== -->
 <section class="stack-section fade-up">
     <div class="container">
-        <span class="section-label">Complete Financial Intelligence Stack</span>
-        <h2>Eight interconnected modules working together to transform raw data into strategic decisions</h2>
-        <p class="stack-copy">Eight interconnected modules working together to transform raw data into strategic decisions with full auditability.</p>
+        <span class="section-label">Enterprise Outcomes</span>
+        <h2>Strategic Value Pillars</h2>
+        <p class="stack-copy">High-precision functional modules designed to transform raw financial data into verified strategic outcomes for institutional stakeholders.</p>
         <div class="stack-grid">
             <div class="stack-card"><h4>Command Center</h4><p>Centralized operations, system health, and decision orchestration.</p></div>
             <div class="stack-card"><h4>Sovereign Strategic</h4><p>Executive-grade dashboards that present trusted outcomes and verified audit trails.</p></div>
@@ -891,9 +914,9 @@
 <!-- ========== DECISION INTELLIGENCE SECTION ========== -->
 <section class="decision-section fade-up">
     <div class="container">
-        <span class="section-label">Strategic Intelligence</span>
-        <h2>Decision Intelligence Core</h2>
-        <p class="pipeline-copy">Moving beyond analysis to probabilistic outcome modeling. Our decision engine provides the conviction needed for high-stakes moves.</p>
+        <span class="section-label">Future Readiness</span>
+        <h2>Probabilistic Decision Logic</h2>
+        <p class="pipeline-copy">Moving beyond static analysis to dynamic outcome modeling. Our decision core provides the statistical conviction needed for high-stakes capital allocation.</p>
         
         <div class="stack-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 3rem;">
             <div class="stack-card" style="border-color: rgba(79, 209, 197, 0.3);">
@@ -960,17 +983,17 @@
 
 <!-- ========== STRATEGIC REPORTING ========== -->
 <section class="reporting-section fade-up">
-    <div class="container">
+    <div class="container" style="text-align: center;">
         <span class="section-label">Stakeholder Excellence</span>
         <h2>Executive Strategic Reporting</h2>
         <p class="engine-subtitle">Board-ready reporting generated instantly from ground-truth financial data. High-fidelity visualizations for high-stakes decisions.</p>
         
-        <div class="screenshot-showcase" style="margin: 3rem 0;">
-            <div class="screenshot-frame" style="border-radius: 24px; border-color: rgba(79, 209, 197, 0.4);">
+        <div class="screenshot-showcase" style="margin: 4rem auto; max-width: 1000px;">
+            <div class="screenshot-frame" style="border-radius: 32px; border-color: var(--accent); box-shadow: 0 0 50px rgba(16, 185, 129, 0.15);">
                 <div class="screenshot-dots"><span></span><span></span><span></span></div>
                 <img src="assets/p&l-waterfall.png" alt="P&L Waterfall Analysis — Visualizing margin erosion and bottom-line impact" loading="lazy">
             </div>
-            <div class="screenshot-caption" style="font-size: 0.9rem; color: var(--text-primary); margin-top: 1.5rem;">P&L Waterfall — Root-cause analysis of margin changes from revenue to net profit with automated variance commentary.</div>
+            <div class="screenshot-caption" style="font-size: 1rem; color: var(--accent); margin-top: 2rem; font-weight: 600; letter-spacing: 0.05em;">P&L WATERFALL: ROOT-CAUSE VARIANCE ANALYSIS</div>
         </div>
     </div>
 </section>
