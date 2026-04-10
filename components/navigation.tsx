@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Hexagonal teal logo SVG
+const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="27" fill="none" viewBox="0 0 48 46"><path fill="#00d4aa" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>`;
+
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/platform", label: "Platform" },
@@ -38,30 +41,10 @@ export function Navigation() {
       <nav className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10">
-            <svg viewBox="0 0 40 40" className="w-full h-full">
-              <defs>
-                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#06b6d4" />
-                  <stop offset="100%" stopColor="#10b981" />
-                </linearGradient>
-              </defs>
-              <circle
-                cx="20"
-                cy="20"
-                r="18"
-                fill="none"
-                stroke="url(#logoGradient)"
-                strokeWidth="2"
-                className="group-hover:animate-pulse-glow"
-              />
-              <polygon
-                points="20,8 28,28 20,23 12,28"
-                fill="url(#logoGradient)"
-                className="transition-transform group-hover:scale-110 origin-center"
-              />
-            </svg>
-          </div>
+          <div 
+            className="relative w-10 h-10 transition-transform group-hover:scale-110"
+            dangerouslySetInnerHTML={{ __html: LOGO_SVG }}
+          />
           <span className="text-xl font-bold text-white tracking-tight">
             NYX <span className="text-cyan-400">Core</span>
           </span>
