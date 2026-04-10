@@ -27,7 +27,7 @@ export function CTA() {
           </p>
 
           <form
-            action="https://formspree.io/f/mqegvrwb"
+            action="https://formspree.io/f/meepyjjl"
             method="POST"
             className="flex flex-col sm:flex-row gap-3"
           >

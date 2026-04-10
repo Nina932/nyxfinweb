@@ -1290,7 +1290,7 @@
       <span class="section-tag">Ready to Talk</span>
       <h3>See the decision layer in action</h3>
       <p>Upload data, test the pipeline, and get a demo aligned to your financial workflows.</p>
-      <form class="contact-form" action="https://formsubmit.co/connect@nyxcore.space" method="POST" id="contactForm">
+      <form class="contact-form" action="https://formspree.io/f/meepyjjl" method="POST" id="contactForm">
         <input type="hidden" name="_subject" value="NYX Core Demo Request">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Full Name" required>
@@ -1371,10 +1371,15 @@
       btn.disabled = true;
 
       try {
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
         const response = await fetch(this.action, {
           method: 'POST',
-          body: new FormData(this),
-          headers: { 'Accept': 'application/json' }
+          body: JSON.stringify(data),
+          headers: { 
+            'Accept': 'application/json'
+          }
         });
 
         if (response.ok) {
