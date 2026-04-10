@@ -1,138 +1,63 @@
 "use client";
 
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 export function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
-
   return (
-    <section className="py-24 relative overflow-hidden" ref={ref} id="demo">
-      {/* Background Effects */}
-      <div className="absolute inset-0 radial-gradient" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
+    <section ref={ref} className="py-24">
+      <div className="container mx-auto px-6">
 
-      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="max-w-4xl mx-auto"
+          className="max-w-2xl mx-auto text-center"
         >
-          {/* CTA Card */}
-          <div className="glass-card rounded-2xl p-8 md:p-12 text-center gradient-border">
 
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6"
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Request Demo
+          </h2>
+
+          <p className="text-gray-400 mb-8">
+            Fill the form and we will contact you
+          </p>
+
+          <form
+            action="https://formspree.io/f/mqegvrwb"
+            method="POST"
+            className="flex flex-col sm:flex-row gap-3"
+          >
+            {/* SUBJECT */}
+            <input
+              type="hidden"
+              name="_subject"
+              value="NYX Core - Demo Request"
+            />
+
+            {/* RESPONSE SETTINGS */}
+            <input type="hidden" name="_captcha" value="false" />
+
+            {/* მთავარი email (Formspree destination = dashboard email) */}
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              required
+              className="flex-1 px-4 py-3 rounded-lg bg-black border border-gray-700 text-white"
+            />
+
+            <button
+              type="submit"
+              className="px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg"
             >
-              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-              <span className="text-sm text-cyan-400">Early Access Available</span>
-            </motion.span>
+              Send <ArrowRight className="inline w-4 h-4 ml-1" />
+            </button>
+          </form>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
-            >
-              Ready to Transform Your
-              <br />
-              <span className="text-gradient">Financial Intelligence?</span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4 }}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
-            >
-              Join leading enterprises using NYX Core to turn raw accounting data
-              into verified insights and executable decisions.
-            </motion.p>
-
-            {/* FORM */}
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.5 }}
-              action="https://formspree.io/f/mqegvrwb"
-              method="POST"
-              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8"
-            >
-              {/* SUBJECT */}
-              <input
-                type="hidden"
-                name="_subject"
-                value="NYX Core - Demo Request"
-              />
-
-              {/* disable captcha */}
-              <input type="hidden" name="_captcha" value="false" />
-
-              {/* message */}
-              <input
-                type="hidden"
-                name="message"
-                value="New demo request from NYX Core website"
-              />
-
-              {/* CC EMAIL (SECOND EMAIL) */}
-              <input
-                type="hidden"
-                name="_cc"
-                value="connect@nyxcore.space"
-              />
-
-              {/* EMAIL INPUT */}
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your work email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3 bg-background border border-border rounded-lg text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/50"
-              />
-
-              <button
-                type="submit"
-                className="group px-6 py-3 bg-gradient-to-r from-cyan-500 to-emerald-500 text-background font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
-              >
-                Request Demo
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.form>
-
-            {/* TRUST */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
-            >
-              <span className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-400" />
-                SOC 2 Compliant
-              </span>
-              <span className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-400" />
-                GDPR Ready
-              </span>
-              <span className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-400" />
-                On-premise Available
-              </span>
-            </motion.div>
-
-          </div>
         </motion.div>
       </div>
     </section>
