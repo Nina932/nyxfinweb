@@ -48,6 +48,31 @@
     .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
     section { padding: 120px 0; position: relative; }
 
+    .hero { padding: 160px 0 100px; text-align: center; }
+    .hero h1 { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.02; margin-bottom: 1.25rem; }
+    .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 760px; margin: 0 auto 2rem; }
+    .cta-buttons { display: inline-flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.25rem; }
+    .cta-buttons .btn { min-width: 200px; }
+    .hero small { display: block; color: var(--text-secondary); margin-top: 1rem; }
+
+    .problem, .solution, .workflow, .architecture, .decision-engine, .comparison, .demo, .value, .final-cta { padding: 100px 0; }
+    .problem ul, .comparison ul, .value ul { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1rem; }
+    .problem li, .comparison li, .value li { background: rgba(255,255,255,0.05); padding: 1rem 1.2rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.08); }
+    .solution .highlight { display: inline-flex; align-items: center; justify-content: center; margin-top: 1.5rem; padding: 1rem 1.4rem; border-radius: 1.5rem; background: rgba(0, 212, 170, 0.12); border: 1px solid rgba(79, 209, 197, 0.22); color: #d8fff3; font-weight: 600; }
+    .workflow .steps, .architecture .layers, .comparison .grid, .demo .demo-box { display: grid; gap: 1rem; }
+    .workflow .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .architecture .layers { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .comparison .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .comparison .grid > div, .workflow .step, .architecture .layer, .demo .result-box, .decision-engine .wow-box { border-radius: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+    .workflow .step h3, .architecture .layer h3, .comparison h3, .demo h2 { margin-bottom: 1rem; }
+    .decision-engine .wow-box { background: rgba(3, 36, 53, 0.75); border: 1px solid rgba(79, 209, 197, 0.24); }
+    .decision-engine .example { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 1rem; border-radius: 1rem; margin-top: 1rem; }
+    .demo .demo-box { grid-template-columns: minmax(0, 1fr) 320px; align-items: flex-start; padding: 2rem; background: rgba(255,255,255,0.04); }
+    .demo .demo-flow p, .demo .result-box p { margin: 0.75rem 0; }
+    .final-cta { background: rgba(0, 212, 170, 0.1); border-radius: 2rem; text-align: center; padding: 4rem 0; }
+    .final-cta h2 { margin-bottom: 1rem; }
+    .final-cta p { max-width: 760px; margin: 0 auto 1.5rem; color: var(--text-secondary); }
+
     .section-tag {
       font-family: var(--font-mono);
       color: var(--accent-teal);
@@ -986,51 +1011,170 @@
 <!-- ═══════════════ HERO SECTION ═══════════════ -->
 <section class="hero">
   <div class="container">
-    <div class="hero-container">
-      <div class="hero-content reveal">
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          DECISION-CENTRIC AI
-        </div>
-        <h1>
-          <span class="gradient-text">Sovereign Financial Intelligence</span><br>
-          for Enterprise Operations
-        </h1>
-        <p>Transform raw accounting data into verified insights and executable decisions. NYX Core is the decision layer on top of your financial data.</p>
-        
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="value">12</span>
-            <span class="label">AI Agents</span>
-          </div>
-          <div class="hero-stat">
-            <span class="value">500+</span>
-            <span class="label">Analysis Tools</span>
-          </div>
-          <div class="hero-stat">
-            <span class="value">99.9%</span>
-            <span class="label">Precision</span>
-          </div>
-        </div>
+    <h1>Financial Intelligence for Real-Time Decisions</h1>
+    <p>Upload financial data → get structured analysis → receive actionable decisions in seconds.</p>
+    <div class="cta-buttons">
+      <a href="#contact" class="btn btn-primary">Upload Demo Data</a>
+      <a href="#demo" class="btn btn-secondary">See Live Example</a>
+    </div>
+    <small>Trusted for high-volume financial operations & enterprise-grade analysis</small>
+  </div>
+</section>
 
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> Request Demo
-          </a>
-          <a href="#platform" class="btn btn-secondary">
-            <i class="fas fa-play"></i> Watch Overview
-          </a>
-        </div>
+<section class="problem">
+  <div class="container">
+    <span class="section-tag">The Problem</span>
+    <h2>The Problem</h2>
+    <p>Financial teams still rely on spreadsheets, manual consolidation, and delayed reporting.</p>
+    <ul>
+      <li>5–10 day monthly closing cycles</li>
+      <li>Fragmented Excel-based workflows</li>
+      <li>Hidden financial inefficiencies</li>
+      <li>Delayed decision-making at executive level</li>
+    </ul>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="container">
+    <span class="section-tag">The Solution</span>
+    <h2>The Solution</h2>
+    <p>NYX Core transforms raw financial data into structured insights and decisions automatically.</p>
+    <div class="highlight">From Data Chaos → To Decision Intelligence</div>
+  </div>
+</section>
+
+<section class="workflow">
+  <div class="container">
+    <span class="section-tag">How It Works</span>
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Connect Data</h3>
+        <p>Upload Excel, 1C exports, or ERP data sources.</p>
       </div>
-
-      <div class="hero-visual reveal stagger-2">
-        <div class="screenshot-frame glow float">
-          <div class="screenshot-dots"><span></span><span></span><span></span></div>
-          <img src="assets/dashboard-main.png" alt="NYX Core Sovereign Strategic Dashboard">
-          <span class="screenshot-label">SOVEREIGN_STRATEGIC_DASHBOARD</span>
-        </div>
+      <div class="step">
+        <h3>2. Understand Structure</h3>
+        <p>The system maps financial logic and accounting structure.</p>
+      </div>
+      <div class="step">
+        <h3>3. Analyze & Detect</h3>
+        <p>Find anomalies, trends, inefficiencies, and risks.</p>
+      </div>
+      <div class="step">
+        <h3>4. Generate Decisions</h3>
+        <p>Receive ranked actions with financial impact simulation.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="architecture">
+  <div class="container">
+    <span class="section-tag">Financial Intelligence Engine</span>
+    <h2>Financial Intelligence Engine</h2>
+    <div class="layers">
+      <div class="layer">
+        <h3>Data Processing Engine</h3>
+        <p>Transforms raw financial files into structured datasets.</p>
+      </div>
+      <div class="layer">
+        <h3>Knowledge Graph</h3>
+        <p>Understands accounting logic, not just numbers.</p>
+      </div>
+      <div class="layer">
+        <h3>Vector Intelligence Layer</h3>
+        <p>Captures semantic meaning and financial context.</p>
+      </div>
+      <div class="layer">
+        <h3>Multi-Agent System</h3>
+        <p>Breaks financial tasks into intelligent execution steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="decision-engine">
+  <div class="container">
+    <span class="section-tag">Decision Engine</span>
+    <h2>Decision Engine</h2>
+    <div class="wow-box">
+      <h3>From Insight → To Action</h3>
+      <p>The system does not stop at analysis — it recommends actions with predicted outcomes.</p>
+      <div class="example">
+        <strong>Recommendation:</strong> Increase wholesale pricing by 2.5%<br>
+        <strong>Expected Impact:</strong> +₾245,000 revenue<br>
+        <strong>Confidence:</strong> 92%
+      </div>
+      <a href="#contact" class="btn btn-primary">Run Simulation on Your Data</a>
+    </div>
+  </div>
+</section>
+
+<section class="comparison">
+  <div class="container">
+    <span class="section-tag">Before vs After</span>
+    <h2>Before vs After NYX Core</h2>
+    <div class="grid">
+      <div>
+        <h3>Before</h3>
+        <ul>
+          <li>Manual Excel analysis</li>
+          <li>Delayed reporting cycles</li>
+          <li>Unclear financial drivers</li>
+        </ul>
+      </div>
+      <div>
+        <h3>After</h3>
+        <ul>
+          <li>Automated financial intelligence</li>
+          <li>Real-time insights</li>
+          <li>Actionable decisions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="demo">
+  <div class="container">
+    <span class="section-tag">Try the System</span>
+    <h2>Try the System</h2>
+    <div class="demo-box">
+      <button class="btn btn-secondary">Upload Sample Financial File</button>
+      <div class="demo-flow">
+        <p>Step 1 → Data Ingestion</p>
+        <p>Step 2 → Structural Mapping</p>
+        <p>Step 3 → Financial Analysis</p>
+        <p>Step 4 → Decision Output</p>
+      </div>
+      <div class="result-box">
+        <p><strong>Insight:</strong> Margin decline detected in Wholesale segment</p>
+        <p><strong>Action:</strong> Adjust pricing strategy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="container">
+    <span class="section-tag">What You Get</span>
+    <h2>What You Get</h2>
+    <ul>
+      <li>Real-time financial visibility</li>
+      <li>Automated reporting & analysis</li>
+      <li>Decision-ready insights</li>
+      <li>Reduced dependency on manual finance teams</li>
+    </ul>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>See Your Financial Data Differently</h2>
+    <p>Upload your dataset and discover what your numbers are actually saying.</p>
+    <a href="#contact" class="btn btn-primary">Request Institutional Demo</a>
+    <small>Response within 24 hours</small>
   </div>
 </section>
 
@@ -1287,7 +1431,9 @@
       <h3>Shape the Future of Financial Intelligence</h3>
       <p>Request an institutional pilot or explore the full system technical specification.</p>
       
-      <form class="contact-form" action="https://formspree.io/f/connect@nyxcore.space" method="POST" id="contactForm">
+      <form class="contact-form" action="https://formsubmit.co/connect@nyxcore.space" method="POST" id="contactForm">
+        <input type="hidden" name="_subject" value="NYX Core Demo Request">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Business Email" required>
         <textarea name="message" placeholder="Describe your requirements..." rows="4"></textarea>
@@ -1309,7 +1455,19 @@
     <div class="footer-inner">
       <div class="footer-logo">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px">
-          <polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#4fd1c5" stroke-width="3" fill="none"/>
+          <defs><filter id="ng" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="6" result="b1"/><feGaussianBlur stdDeviation="12" result="b2"/><feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g stroke="#1E3D5A" stroke-width="0.7" fill="none" opacity="0.3">
+            <polygon points="91,74.4 82,90 64,90 55,74.4 64,58.8 82,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" repeatCount="indefinite"/></polygon>
+            <polygon points="118,58.8 109,74.4 91,74.4 82,58.8 91,43.2 109,43.2"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="0.5s" repeatCount="indefinite"/></polygon>
+            <polygon points="118,90 109,105.6 91,105.6 82,90 91,74.4 109,74.4"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1s" repeatCount="indefinite"/></polygon>
+            <polygon points="118,121.2 109,136.8 91,136.8 82,121.2 91,105.6 109,105.6"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="1.5s" repeatCount="indefinite"/></polygon>
+            <polygon points="145,74.4 136,90 118,90 109,74.4 118,58.8 136,58.8"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2s" repeatCount="indefinite"/></polygon>
+            <polygon points="145,105.6 136,121.2 118,121.2 109,105.6 118,90 136,90"><animate attributeName="stroke-opacity" values="0.3;0.12;0.3" dur="4s" begin="2.5s" repeatCount="indefinite"/></polygon>
+          </g>
+          <polygon points="100,42 142,66 142,114 100,138 58,114 58,66" fill="#00C8FF" opacity="0.04"/>
+          <polygon points="100,30 150,60 150,120 100,150 50,120 50,60" stroke="#00E5FF" stroke-width="1" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.3;0" dur="3s" repeatCount="indefinite"/></polygon>
+          <polygon points="100,25 155,57.5 155,122.5 100,155 45,122.5 45,57.5" stroke="#00E5FF" stroke-width="0.5" fill="none" opacity="0"><animate attributeName="opacity" values="0;0.15;0" dur="3s" begin="0.5s" repeatCount="indefinite"/></polygon>
+          <polygon points="100,42 142,66 142,114 100,138 58,114 58,66" stroke="#00E5FF" stroke-width="3" fill="none" filter="url(#ng)"><animate attributeName="stroke-opacity" values="1;0.65;1" dur="3s" repeatCount="indefinite"/></polygon>
         </svg>
         NYX <span class="core">CORE</span>
       </div>
