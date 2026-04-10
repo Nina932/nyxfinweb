@@ -1,21 +1,6 @@
 {
   "version": 2,
-  "name": "nyxcore-investor-portal",
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "about.html", "use": "@vercel/static" },
-    { "src": "platform.html", "use": "@vercel/static" },
-    { "src": "pricing.html", "use": "@vercel/static" },
-    { "src": "use-cases.html", "use": "@vercel/static" },
-    { "src": "assets/**", "use": "@vercel/static" },
-    { "src": "styles.css", "use": "@vercel/static" },
-    { "src": "components.js", "use": "@vercel/static" }
-  ],
-  "rewrites": [
-    { "source": "/platform", "destination": "/platform.html" },
-    { "source": "/use-cases", "destination": "/use-cases.html" },
-    { "source": "/pricing", "destination": "/pricing.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/contact", "destination": "/index.html#contact" }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install"
 }
