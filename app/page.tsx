@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/sections/hero";
+import { DataLineage } from "@/components/sections/data-lineage";
 import { Features } from "@/components/sections/features";
 import { DashboardShowcase } from "@/components/sections/dashboard-showcase";
 import { Pipeline } from "@/components/sections/pipeline";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navigation />
       <Hero />
+      <DataLineage />
       <Features />
       <DashboardShowcase />
       <Pipeline />
