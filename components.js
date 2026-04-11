@@ -34,11 +34,11 @@ function renderNav() {
         </a>
         <div class="nav-links">
           <a href="index.html" ${isActive('index.html') ? 'class="active"' : ''}>Home</a>
+          <a href="features.html" ${isActive('features.html') ? 'class="active"' : ''}>Features</a>
           <a href="platform.html" ${isActive('platform.html') ? 'class="active"' : ''}>Platform</a>
           <a href="use-cases.html" ${isActive('use-cases.html') ? 'class="active"' : ''}>Use Cases</a>
-          <a href="pricing.html" ${isActive('pricing.html') ? 'class="active"' : ''}>Pricing</a>
           <a href="about.html" ${isActive('about.html') ? 'class="active"' : ''}>About</a>
-          <a href="about.html#contact" class="nav-cta">Request Demo</a>
+          <a href="index.html#contact" class="nav-cta">Request Early Access</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -84,7 +84,7 @@ function renderFooter() {
             ${LOGO_SVG}
             <span>NYX <span class="logo-accent">CORE</span></span>
           </a>
-          <p>Sovereign Financial Intelligence for Emerging Markets</p>
+          <p>Financial Intelligence for Modern Businesses</p>
           <div class="social-links">
             <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">${SOCIAL_ICONS.linkedin}</a>
             <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">${SOCIAL_ICONS.github}</a>
@@ -93,10 +93,10 @@ function renderFooter() {
         </div>
         <div class="footer-col">
           <h4>Product</h4>
+          <a href="features.html">Features</a>
           <a href="platform.html">Platform</a>
           <a href="use-cases.html">Use Cases</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="https://docs.nyxcore.space" target="_blank">Documentation</a>
+          <a href="index.html#how-it-works">How it Works</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
@@ -114,7 +114,7 @@ function renderFooter() {
       </div>
       <div class="footer-bottom">
         <span>&copy; ${currentYear} NYX Core Thinker LLC. All rights reserved.</span>
-        <span>Tbilisi, Georgia</span>
+        <span>Founded in Tbilisi</span>
       </div>
     </div>
   `;

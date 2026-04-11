@@ -7,7 +7,6 @@
     { "src": "about.html", "use": "@vercel/static" },
     { "src": "features.html", "use": "@vercel/static" },
     { "src": "platform.html", "use": "@vercel/static" },
-    { "src": "pricing.html", "use": "@vercel/static" },
     { "src": "use-cases.html", "use": "@vercel/static" },
     { "src": "assets/**", "use": "@vercel/static" },
     { "src": "styles.css", "use": "@vercel/static" },
@@ -15,5 +14,8 @@
   ],
   "rewrites": [
     { "source": "/contact", "destination": "/#contact" }
+  ],
+  "redirects": [
+    { "source": "/pricing", "destination": "/", "permanent": true }
   ]
 }
