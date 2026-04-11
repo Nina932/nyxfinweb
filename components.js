@@ -38,7 +38,7 @@ function renderNav() {
           <a href="platform.html" ${isActive('platform.html') ? 'class="active"' : ''}>Platform</a>
           <a href="use-cases.html" ${isActive('use-cases.html') ? 'class="active"' : ''}>Use Cases</a>
           <a href="about.html" ${isActive('about.html') ? 'class="active"' : ''}>About</a>
-          <a href="index.html#contact" class="nav-cta">Request Early Access</a>
+          <a href="index.html#contact" class="nav-cta" style="color: #050810 !important;">Request Early Access</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
