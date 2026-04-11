@@ -20,12 +20,14 @@
         html { scroll-behavior: smooth; }
 
         :root {
-            --bg: #030a16;
+            --bg: #030816;
             --card-bg: rgba(255, 255, 255, 0.03);
             --accent: #10b981; /* Emerald */
             --accent-glow: rgba(16, 185, 129, 0.4);
             --logo: #863bff;
             --border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(16, 185, 129, 0.03);
+            --glass-border: rgba(16, 185, 129, 0.2);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --font-outfit: 'Outfit', sans-serif;
@@ -864,11 +866,11 @@
         <p class="subtitle">From raw accounting data to CFO-grade decisions. NYX CORE provides the functional modules to run high-stakes financial operations at scale.</p>
 
         <div class="screenshot-showcase hero-visual" style="margin-top: 4rem;">
-            <div class="screenshot-frame" style="border-radius: 32px; box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px var(--accent-glow);">
+            <div class="screenshot-frame" style="border-radius: 32px; box-shadow: 0 30px 100px rgba(0,0,0,0.6), 0 0 60px rgba(16, 185, 129, 0.2);">
                 <div class="screenshot-dots"><span></span><span></span><span></span></div>
-                <img src="assets/platform.png" alt="NYX Core Strategic Cockpit" loading="lazy">
+                <img src="assets/dashboard-main.png" alt="NYX Core Strategic Cockpit" loading="lazy">
             </div>
-            <div class="screenshot-caption" style="color: var(--accent); font-weight: 600; letter-spacing: 0.1em; margin-top: 2rem;">STRATEGIC COCKPIT — REAL-TIME DECISION ORCHESTRATION</div>
+            <div class="screenshot-caption" style="color: var(--accent); font-weight: 600; letter-spacing: 0.2em; margin-top: 2rem;">STRATEGIC COCKPIT — REAL-TIME DECISION ORCHESTRATION</div>
         </div>
     </div>
 </section>
@@ -919,17 +921,27 @@
         <p class="pipeline-copy">Moving beyond static analysis to dynamic outcome modeling. Our decision core provides the statistical conviction needed for high-stakes capital allocation.</p>
         
         <div class="stack-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 3rem;">
-            <div class="stack-card" style="border-color: rgba(79, 209, 197, 0.3);">
-                <h4 style="color: var(--accent); margin-bottom: 1rem;">Monte Carlo Simulation</h4>
+            <div class="stack-card" style="border-color: #10b981; background: rgba(16, 185, 129, 0.05);">
+                <h4 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-dice" style="margin-right: 0.5rem;"></i> Monte Carlo Simulation</h4>
                 <p>Run 5,000+ iterations with Cholesky-decomposed correlated variables to compute 95% VaR and confidence intervals for every business action.</p>
+                <div class="screenshot-frame" style="margin-top: 1.5rem; border-radius: 12px;">
+                    <img src="assets/montecarlo.jpeg" alt="Monte Carlo Simulation Analysis" style="width: 100%;">
+                </div>
             </div>
             <div class="stack-card" style="border-color: rgba(0, 229, 255, 0.3);">
-                <h4 style="color: #00E5FF; margin-bottom: 1rem;">Conviction Scoring</h4>
+                <h4 style="color: #00E5FF; margin-bottom: 1rem;"><i class="fas fa-bullseye" style="margin-right: 0.5rem;"></i> Conviction Scoring</h4>
                 <p>Grades actions (A+ through F) based on ROI, MC probability, and health urgency to provide a clear CFO-ready primary recommendation.</p>
             </div>
             <div class="stack-card" style="border-color: rgba(79, 209, 197, 0.3);">
-                <h4 style="color: #4fd1c5; margin-bottom: 1rem;">Causal Decomposition</h4>
+                <h4 style="color: #4fd1c5; margin-bottom: 1rem;"><i class="fas fa-project-diagram" style="margin-right: 0.5rem;"></i> Causal Decomposition</h4>
                 <p>Identify the root cause of every signal. Understand exactly how much a 1% change in COGS or OpEx affects your bottom-line Net Profit.</p>
+            </div>
+            <div class="stack-card" style="border-color: #10b981; background: rgba(16, 185, 129, 0.05); grid-column: span 3;">
+                <h4 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-microchip" style="margin-right: 0.5rem;"></i> Simulation & Scenario Modeling</h4>
+                <p>Advanced predictive twins allow for what-if modeling of supply chain disruptions, tax law changes, and expansion strategies with deterministic accuracy.</p>
+                <div class="screenshot-frame" style="margin-top: 1.5rem; border-radius: 24px;">
+                    <img src="assets/simulation-scenaric modeling.jpeg" alt="Scenario Modeling — Predictive Digital Twin" style="width: 100%;">
+                </div>
             </div>
         </div>
     </div>
@@ -989,11 +1001,19 @@
         <p class="engine-subtitle">Board-ready reporting generated instantly from ground-truth financial data. High-fidelity visualizations for high-stakes decisions.</p>
         
         <div class="screenshot-showcase" style="margin: 4rem auto; max-width: 1000px;">
-            <div class="screenshot-frame" style="border-radius: 32px; border-color: var(--accent); box-shadow: 0 0 50px rgba(16, 185, 129, 0.15);">
+            <div class="screenshot-frame" style="border-radius: 32px; border-color: var(--accent); box-shadow: 0 0 50px rgba(16, 185, 129, 0.25);">
                 <div class="screenshot-dots"><span></span><span></span><span></span></div>
-                <img src="assets/p&l-waterfall.png" alt="P&L Waterfall Analysis — Visualizing margin erosion and bottom-line impact" loading="lazy">
+                <img src="assets/Revenue by Segment × Month.jpeg" alt="P&L Waterfall Analysis — Visualizing margin erosion and bottom-line impact" loading="lazy">
             </div>
-            <div class="screenshot-caption" style="font-size: 1rem; color: var(--accent); margin-top: 2rem; font-weight: 600; letter-spacing: 0.05em;">P&L WATERFALL: ROOT-CAUSE VARIANCE ANALYSIS</div>
+            <div class="screenshot-caption" style="font-size: 1.1rem; color: var(--accent); margin-top: 2rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">P&L WATERFALL: ROOT-CAUSE VARIANCE ANALYSIS</div>
+        </div>
+
+        <div class="screenshot-showcase" style="margin: 4rem auto; max-width: 1000px;">
+            <div class="screenshot-frame" style="border-radius: 32px; border-color: var(--accent); box-shadow: 0 0 50px rgba(16, 185, 129, 0.25);">
+                <div class="screenshot-dots"><span></span><span></span><span></span></div>
+                <img src="assets/Revenue Flow - Sankey Diagram.jpeg" alt="Revenue Flow Sankey — Visualizing enterprise value streams" loading="lazy">
+            </div>
+            <div class="screenshot-caption" style="font-size: 1.1rem; color: var(--accent); margin-top: 2rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">REVENUE ORCHESTRATION: ENTERPRISE VALUE FLOW</div>
         </div>
     </div>
 </section>

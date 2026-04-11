@@ -24,8 +24,8 @@
             --card-bg: rgba(10, 25, 48, 0.4);
             --accent: #00E5FF;
             --logo: #863bff;
-            --border: rgba(0, 229, 255, 0.15);
-            --blueprint-grid: rgba(0, 229, 255, 0.07);
+            --border: rgba(0, 229, 255, 0.25);
+            --blueprint-grid: rgba(0, 229, 255, 0.12);
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
             --font-outfit: 'Outfit', sans-serif;
@@ -287,13 +287,13 @@
             border-left: 2px solid var(--accent);
         }
 
-        .stack-card::after, .module-card::after, .engine-card::after {
+        .stack-card::after, .module-card::after, .engine-card::after, .pipeline-node::after {
             content: '';
             position: absolute;
             bottom: 0; right: 0; width: 12px; height: 12px;
             border-bottom: 2px solid var(--accent);
             border-right: 2px solid var(--accent);
-            opacity: 0.5;
+            opacity: 0.8;
         }
 
         .stack-card:hover,
@@ -910,6 +910,17 @@
         <span class="badge">Institutional Infrastructure</span>
         <h1>Autonomous Decision Architecture</h1>
         <p class="subtitle">Ensuring financial truth through a Symbolic-Primary / Neural-Augmented hybrid architecture. Deterministic computation meets agentic reasoning.</p>
+        
+        <div class="screenshot-showcase hero-visual" style="margin-top: 4rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            <div class="screenshot-frame" style="border-radius: 32px; border-color: var(--accent); box-shadow: 0 0 60px rgba(0, 229, 255, 0.2);">
+                <div class="screenshot-dots"><span></span><span></span><span></span></div>
+                <video autoplay muted loop playsinline style="width: 100%; display: block; border-radius: 0 0 32px 32px;">
+                    <source src="assets/strategic-map.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="screenshot-caption" style="color: var(--accent); font-weight: 600; letter-spacing: 0.2em; margin-top: 2rem; border-left: 2px solid var(--accent); padding-left: 1rem; text-align: left;">MISSION CONTROL: STRATEGIC TOPOLOGICAL MAP</div>
+        </div>
     </div>
 </section>
 
@@ -923,13 +934,28 @@
             <div class="stack-card"><h4>Command Center</h4><p>Centralized operations, system health, and decision orchestration.</p></div>
             <div class="stack-card"><h4>Sovereign Strategic</h4><p>Executive-grade dashboards that present trusted outcomes and verified audit trails.</p></div>
             <div class="stack-card"><h4>Operational Data</h4><p>End-to-end financial traceability from ERP ingestion to consolidated output.</p></div>
-            <div class="stack-card" style="border-color: var(--accent);">
+            <div class="stack-card" style="border-color: var(--accent); background: rgba(0, 229, 255, 0.05);">
                 <h4>Vector Intelligence</h4>
                 <p>2,344+ embeddings in <strong>ChromaDB</strong> for semantic search, similarity matching, and contextual retrieval.</p>
+                <div class="screenshot-frame" style="margin-top: 1rem; border-radius: 8px;">
+                    <img src="assets/ontology.png" alt="Vector Intelligence Matrix" style="width: 100%;">
+                </div>
             </div>
-            <div class="stack-card"><h4>Agent Workflow</h4><p>Composable AI workflows coordinate reasoning, simulation, and validation.</p></div>
+            <div class="stack-card" style="border-color: var(--accent); background: rgba(0, 229, 255, 0.05);">
+                <h4>Agent Workflow</h4>
+                <p>Composable AI workflows coordinate reasoning, simulation, and validation between human operators and autonomous agents.</p>
+                <div class="screenshot-frame" style="margin-top: 1rem; border-radius: 8px;">
+                    <img src="assets/operator-briefing.png" alt="Operator Briefing — Human-Agent Coordination" style="width: 100%;">
+                </div>
+            </div>
             <div class="stack-card"><h4>Sub-Ledger Analysis</h4><p>Deep ledger inspection with AP/AR, inventory, fixed assets, and profitability.</p></div>
-            <div class="stack-card"><h4>Financial Ontology</h4><p>Knowledge graph explorer linking accounts, IFRS standards, and entity relationships.</p></div>
+            <div class="stack-card">
+                <h4>Financial Ontology</h4>
+                <p>Knowledge graph explorer linking accounts, IFRS standards, and entity relationships.</p>
+                <div class="screenshot-frame" style="margin-top: 1rem; border-radius: 8px;">
+                    <img src="assets/ontologygraph.jpeg" alt="Financial Ontology Graph" style="width: 100%;">
+                </div>
+            </div>
             <div class="stack-card"><h4>Data Warehouse</h4><p>Pre-built analytics, AI data agent, and natural language query access.</p></div>
         </div>
     </div>
@@ -1052,6 +1078,9 @@
             <div class="module-card">
                 <h4>Flywheel Loop</h4>
                 <p>Seamless synchronization of learnings back into the knowledge graph and agent orchestrator.</p>
+                <div class="screenshot-frame" style="margin-top: 1rem; border-radius: 8px;">
+                    <img src="assets/flywheel.png" alt="Learning Flywheel Loop" style="width: 100%;">
+                </div>
             </div>
         </div>
     </div>
